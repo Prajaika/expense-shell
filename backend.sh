@@ -6,6 +6,7 @@ dnf module enable nodejs:20 -y &>>/tmp/expense.log
 
 echo Install NodeJS
 dnf install nodejs -y &>>/tmp/expense.log
+
 useradd expense &>>/tmp/expense.log
 
 cp backend.service /etc/systemd/system/backend.service &>>/tmp/expense.log
