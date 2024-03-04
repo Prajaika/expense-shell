@@ -4,7 +4,7 @@ dnf module disable nodejs -y &>>/tmp/expense.log
 echo Enable NodeJs module for V20
 dnf module enable nodejs:20 -y &>>/tmp/expense.log
 
-Echo Install NodeJS
+echo Install NodeJS
 dnf install nodejs -y &>>/tmp/expense.log
 useradd expense &>>/tmp/expense.log
 
