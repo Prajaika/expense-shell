@@ -38,9 +38,6 @@ Check_Status $?
 
 Print_Task_Heading "Download App Directory"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>>$LOG
-cd /app &>>$LOG
-unzip /tmp/backend.zip &>>$LOG
-Check_Status $?
 
 Print_Task_Heading "Extract App Content"
 cd /app &>>$LOG
@@ -63,6 +60,5 @@ dnf install mysql -y &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Load Schema"
-mysql -h 172-31-29-157 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG
-
+mysql -h 172-31-29-157 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOG
 Check_Status $?
