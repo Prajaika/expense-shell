@@ -10,14 +10,14 @@ Print_Task_Heading "Install MySQL Service"
 dnf install mysql-server -y &>>$LOG
 Check_Status $?
 
-Print_Task_Heading "Install MySQL Service"
+Print_Task_Heading "Start MySQL Service"
 systemctl enable mysqld &>>$LOG
 systemctl start mysqld &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Setup MySQL Password"
 echo 'show databases' |mysql -h 172.31.29.157 -uroot -p${mysql_root_password} &>>$LOG
-if [ $? -ne 0 ]; tehn
+if [ $? -ne 0 ]; then
 mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOG
 fi
 Check_Status $?
