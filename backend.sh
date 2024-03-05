@@ -9,7 +9,7 @@ if [ -z "${mysql_root_password}" ]; then
   fi
 
 Print_Task_Heading "Diasble default NojeJS Version Module"
-dnf module disable nodejs -y &>>LOG
+dnf module disable nodejs -y &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Enable NodeJS module for v20"
@@ -25,7 +25,7 @@ useradd expense &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Copy Backend Service file"
-cp backend.servoce /etc/systemd/system/backend.service &>>$LOG
+cp backend.service /etc/systemd/system/backend.service &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Clean the Old Content"
