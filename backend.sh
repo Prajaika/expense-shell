@@ -8,7 +8,7 @@ if [ -z "${mysql_root_password}" ]; then
   exit 1
   fi
 
-Print_Task_Heading "Diasble default NojeJS Version Module"
+Print_Task_Heading "Disable default NodeJS Version Module"
 dnf module disable nodejs -y &>>$LOG
 Check_Status $?
 
