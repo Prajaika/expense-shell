@@ -13,15 +13,18 @@ dnf module disable nodejs -y &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Enable NodeJS module for v20"
-snf module enable nodejs:20 -y &>>$LOG
+dnf module enable nodejs:20 -y &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Install NodeJS"
-snf install nodejs -y &>>$LOG
+dnf install nodejs -y &>>$LOG
 Check_Status $?
 
 Print_Task_Heading "Adding Application User"
-useradd expense &>>$LOG
+id expense &>>$LOG
+if [ $? -ne 0 ]; then
+  useradd expense &>>$LOG
+fi
 Check_Status $?
 
 Print_Task_Heading "Copy Backend Service file"
