@@ -75,3 +75,4 @@ Check_Status $?
 Print_Task_Heading "Load Schema"
 mysql -h 172.31.29.157 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>/tmp/expense.log
 Check_Status $?
+
