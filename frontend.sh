@@ -24,4 +24,4 @@ Check_Status $?
 Print_Task_Heading "Start Nginx Service"
 systemctl enable nginx &>>$LOG
 systemctl restart nginx &>>$LOG
-Check_Status $?source common.sh
+Check_Status $?
